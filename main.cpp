@@ -42,7 +42,7 @@ int main()
                 cin>>patient;
                 cout<<"Enter patient "<<k+1<<" Surgery Date: ";
                 cin>>patient_date;
-                 schedules[i]=surgerySchedule(patient,patient_date);
+                 schedules[k]=surgerySchedule(patient,patient_date);
             }
             doctors[i]=new Surgeon(num_of_surgeries,dr_id,dr_name,dr_duration,dr_rate);
 
