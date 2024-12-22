@@ -11,9 +11,9 @@ class Doctor
         string Name ;
         double Duration , Rate ;
     public:
-        Doctor();
-        Doctor (string id , string name ,double duration ,double rate );
-        virtual double calculateTotalFee();
-        virtual string PrettyPrint();
+        Doctor();// Default constructor
+        Doctor (string id , string name ,double duration ,double rate );// Parameterized constructor to initialize a Doctor object with specific values
+        virtual double calculateTotalFee();// Virtual function to calculate the total fee based on duration and rate
+        virtual string PrettyPrint();// Virtual function to return a formatted string with doctor's details
 };
 #endif // DOCTOR_H
