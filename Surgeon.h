@@ -11,13 +11,18 @@ class Surgeon : public Doctor
    int numSurgeriesScheduled =0 ;
    surgerySchedule *schedule ;
    public:
-       Surgeon();
-       Surgeon(int num_surgeries, string id , string name , double duration , double rate );
+       Surgeon();// Default constructor
+       // Parameterized constructor
+       Surgeon(int num_surgeries,surgerySchedule *schedules, string id , string name , double duration , double rate );
+       // Copy constructor
        Surgeon(const Surgeon &obj);
+       // Function to calculate the total fee
        double calculateTotalFee();
+       // Function to return a formatted string
        string PrettyPrint();
-       void printSurgeries()const;
-       string getName();
+       // Function to print all scheduled surgeries for the surgeon
+       string printSurgeries();
+       // Destructor
        ~Surgeon();
 };
 
