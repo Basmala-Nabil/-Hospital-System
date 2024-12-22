@@ -2,13 +2,13 @@
 #include <sstream>
 
 using namespace std;
-// Default constructor for the Surgeon class
+// Default constructor
 Surgeon::Surgeon() : Doctor("", "", 0.0, 0.0) {
-    numSurgeriesScheduled = 0; // Initialize the number of surgeries scheduled to 0
-    schedule = nullptr; // Initialize the schedule pointer to nullptr
+    numSurgeriesScheduled = 0;
+    schedule = nullptr;
 }
 
-// Parameterized constructor for the Surgeon class
+// Parameterized constructor
 Surgeon::Surgeon(int num_surgeries, surgerySchedule *schedules, string id, string name, double duration, double rate)
     : Doctor(id, name, duration, rate) { // Call the base class constructor
     numSurgeriesScheduled = num_surgeries; // Set the number of surgeries scheduled
@@ -18,8 +18,8 @@ Surgeon::Surgeon(int num_surgeries, surgerySchedule *schedules, string id, strin
     }
 }
 
-// Copy constructor for the Surgeon class
-Surgeon::Surgeon(const Surgeon &obj) : Doctor(obj) { // Call the base class copy constructor
+// Copy constructor
+Surgeon::Surgeon(const Surgeon &obj) {
     numSurgeriesScheduled = obj.numSurgeriesScheduled; // Copy the number of surgeries scheduled
     schedule = new surgerySchedule[numSurgeriesScheduled]; // Allocate memory for the surgery schedule array
     for (int i = 0; i < numSurgeriesScheduled; i++) {
@@ -27,9 +27,9 @@ Surgeon::Surgeon(const Surgeon &obj) : Doctor(obj) { // Call the base class copy
     }
 }
 
-// Function to calculate the total fee based on duration and rate
+// Function to calculate the total fee
 double Surgeon::calculateTotalFee() {
-    return (Duration / 60) * Rate; // Calculate total fee as (Duration in hours) * Rate
+    return (Duration / 60) * Rate;
 }
 
 // Function to return a formatted string with the surgeon's details
@@ -43,7 +43,7 @@ string Surgeon::printSurgeries() {
 
     // Check if there are no surgeries scheduled
     if (numSurgeriesScheduled == 0) {
-        surgeriesSchedule += "No surgeries scheduled.\n"; // Add message if no surgeries are scheduled
+        surgeriesSchedule += "No surgeries scheduled.\n";
     } else {
         // Loop through each scheduled surgery and append details to the string
         for (int i = 0; i < numSurgeriesScheduled; i++) {
@@ -53,11 +53,11 @@ string Surgeon::printSurgeries() {
     return surgeriesSchedule; // Return the complete surgeries schedule string
 }
 
-// Destructor for the Surgeon class
+// Destructor
 Surgeon::~Surgeon() {
     delete[] schedule; // Free the allocated memory for the surgery schedule array
     numSurgeriesScheduled = 0; // Reset the number of surgeries scheduled
-    schedule = nullptr; // Set the schedule pointer to nullptr to avoid dangling pointer
+    schedule = nullptr; // Set the schedule pointer to nullptr
 
 }
 
