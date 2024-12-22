@@ -1,3 +1,4 @@
+// Basmala Nabil El-Sayed      20235005
 #include <iostream>
 #include <fstream>
 #include "Doctor.h"
@@ -111,11 +112,16 @@ int main()
                 // Print and write the surgeries of the copied surgeon
                 cout<<"Copy of the surgeon 'surgeries: "<<endl<<copySurgeon->printSurgeries()<<endl;// Print surgeries to console
                 outFile<<"Copy of the surgeon 'surgeries: "<<endl<<copySurgeon->printSurgeries()<<endl;// Write surgeries to the output file
+                delete copySurgeon;//Free up memory allocated to the copied surgeon
             }}
 
 
 
    outFile.close();// Close the output file after writing all details
+   //Free up memory allocated to all doctors
+   for (int i = 0; i < num_of_doctors; i++) {
+        delete doctors[i]; // Freeing up memory allocated to each Doctor object
+    }
 
     return 0;
 }
